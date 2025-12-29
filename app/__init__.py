@@ -1,0 +1,4 @@
+"""
+Flask application package.
+"""
+

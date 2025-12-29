@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq Conversational AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Status Panel -->
+        <div class="status-panel" id="statusPanel">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span class="status-value" id="connectionStatus">Connecting...</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Model:</span>
+                <span class="status-value" id="modelName">-</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Latency:</span>
+                <span class="status-value" id="latency">-</span>
+            </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <!-- Avatar -->
+            <div class="avatar-container">
+                <div class="avatar" id="avatar">
+                    <div class="avatar-face">
+                        <div class="eye left"></div>
+                        <div class="eye right"></div>
+                        <div class="mouth"></div>
+                    </div>
+                </div>
+                <div class="avatar-state" id="avatarState">idle</div>
+            </div>
+
+            <!-- Messages -->
+            <div class="messages" id="messages"></div>
+
+            <!-- Voice Language Selection -->
+            <div class="voice-controls">
+                <div class="language-selector">
+                    <label for="voiceLanguage">Voice Language:</label>
+                    <select id="voiceLanguage">
+                        <option value="en">English</option>
+                        <option value="hi">Hindi (हिंदी)</option>
+                    </select>
+                </div>
+                <div class="voice-toggle">
+                    <input type="checkbox" id="voiceOutputToggle" checked>
+                    <label for="voiceOutputToggle">Voice Output</label>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <button id="voiceRecordButton" class="voice-button" title="Hold to record">
+                    <span class="mic-icon">🎤</span>
+                </button>
+                <textarea 
+                    id="messageInput" 
+                    placeholder="Type your message here or hold the microphone button to speak..."
+                    rows="1"
+                ></textarea>
+                <button id="sendButton" class="send-button">Send</button>
+            </div>
+            
+            <!-- Voice Status -->
+            <div class="voice-status" id="voiceStatus" style="display: none;">
+                <span id="voiceStatusText"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Matrix Canvas -->
+    <canvas id="matrixCanvas"></canvas>
+
+    <script src="/static/js/matrix.js"></script>
+    <script src="/static/js/voice.js"></script>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
+
